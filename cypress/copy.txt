@@ -1,0 +1,10 @@
+it('asd', () => {
+        cy.visit('http://automationpractice.com/index.php')
+        cy.get('.login').click()
+        cy.get('#email').type('11aaa@test.ee')
+        cy.get('#passwd').type('12345')
+        cy.get('#SubmitLogin').click()
+        cy.get('nav > div').should(($div) => {
+            expect($div).to.have.length(3)
+            expect($div.eq(1)).to.contain('Sign out')
+        })

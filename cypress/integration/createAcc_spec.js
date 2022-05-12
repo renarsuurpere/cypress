@@ -1,0 +1,21 @@
+context('Cypress test account creation', () => {
+    it('New account scenario', () => {
+        cy.visit('http://automationpractice.com/index.php')
+        cy.get('.login').click()
+        cy.get('#email_create').type('11aaa@test.ee')
+        cy.get('#SubmitCreate').click()
+        cy.get('#customer_firstname').type('Cypress')
+        cy.get('#customer_lastname').type('Tester')
+        cy.get('#passwd').type('12345')
+        cy.get('#address1').type('myAddress')
+        cy.get('#city').type('myCity')
+        cy.get('#id_state').select('Iowa')
+        cy.get('#postcode').type('12345')
+        cy.get('#phone_mobile').type('123456789')
+        cy.get('#submitAccount').click()
+        cy.get('nav > div').should(($div) => {
+            expect($div).to.have.length(3)
+            expect($div.eq(1)).to.contain('Sign out')
+        })
+    })
+})
