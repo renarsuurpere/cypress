@@ -2,7 +2,7 @@ context('Cypress test account creation', () => {
     it('New account scenario', () => {
         cy.visit('http://automationpractice.com/index.php')
         cy.get('.login').click()
-        cy.get('#email_create').type('11aaa@test.ee')
+        cy.get('#email_create').type(Math.floor(Math.random() * 10000) + '@test.ee')
         cy.get('#SubmitCreate').click()
         cy.get('#customer_firstname').type('Cypress')
         cy.get('#customer_lastname').type('Tester')
