@@ -1,8 +1,5 @@
 {
   "dependencies": {
     "cypress": "^9.5.4"
-  },
-  "scripts": {
-    "build": "webpack"
   }
 }
